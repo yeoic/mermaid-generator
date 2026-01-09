@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mermaid Live Editor</title>
+
+    <!-- Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+    <!-- CodeMirror -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Toolbar -->
+        <header class="toolbar">
+            <div class="toolbar-left">
+                <h1>Mermaid Live Editor</h1>
+            </div>
+            <div class="toolbar-center">
+                <select id="diagram-type" title="Diagram Type">
+                    <option value="flowchart">Flowchart</option>
+                    <option value="sequence">Sequence</option>
+                    <option value="class">Class</option>
+                    <option value="state">State</option>
+                    <option value="er">ER Diagram</option>
+                    <option value="gantt">Gantt</option>
+                    <option value="pie">Pie Chart</option>
+                    <option value="mindmap">Mindmap</option>
+                    <option value="timeline">Timeline</option>
+                    <option value="git">Git Graph</option>
+                </select>
+                <select id="theme-select" title="Theme">
+                    <option value="default">Default</option>
+                    <option value="dark">Dark</option>
+                    <option value="forest">Forest</option>
+                    <option value="neutral">Neutral</option>
+                </select>
+            </div>
+            <div class="toolbar-right">
+                <button id="btn-svg" title="Export SVG">SVG</button>
+                <button id="btn-png" title="Export PNG">PNG</button>
+                <button id="btn-fullscreen" title="Fullscreen">Fullscreen</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Editor Panel -->
+            <div class="panel editor-panel">
+                <div class="panel-header">
+                    <span>Editor</span>
+                    <button id="btn-copy" title="Copy Code">Copy</button>
+                </div>
+                <div class="panel-content">
+                    <textarea id="code-editor"></textarea>
+                </div>
+            </div>
+
+            <!-- Resizer -->
+            <div class="resizer" id="resizer"></div>
+
+            <!-- Preview Panel -->
+            <div class="panel preview-panel">
+                <div class="panel-header">
+                    <span>Preview</span>
+                    <div class="zoom-controls">
+                        <button id="btn-zoom-out" title="Zoom Out">-</button>
+                        <span id="zoom-level">100%</span>
+                        <button id="btn-zoom-in" title="Zoom In">+</button>
+                        <button id="btn-zoom-reset" title="Reset Zoom">Reset</button>
+                    </div>
+                </div>
+                <div class="panel-content" id="preview-container">
+                    <div id="mermaid-preview"></div>
+                </div>
+                <div id="error-display" class="error-display hidden"></div>
+            </div>
+        </main>
+
+        <!-- Status Bar -->
+        <footer class="status-bar">
+            <span id="status-message">Ready</span>
+            <span id="auto-save-status">Auto-save: ON</span>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

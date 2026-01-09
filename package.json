@@ -1,10 +1,20 @@
 {
-  "name": "${PROJECT_NAME}",
+  "name": "mermaid-rendering",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Browser-based real-time Mermaid.js diagram editor",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "node --watch server.js"
   },
-  "private": true
+  "keywords": [
+    "mermaid",
+    "diagram",
+    "flowchart",
+    "editor"
+  ],
+  "private": true,
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
